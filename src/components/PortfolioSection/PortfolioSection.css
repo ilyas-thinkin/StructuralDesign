@@ -1,0 +1,221 @@
+/* ========================================
+   PORTFOLIO SECTION STYLES
+   CSS Variables used - defined in variables.css
+   ======================================== */
+
+/* Colors */
+/* --portfolio-bg, --color-text-primary, --color-text-secondary */
+/* --portfolio-card-bg, --portfolio-card-border */
+
+/* Sizes */
+/* --portfolio-padding-y, --portfolio-icon-size */
+/* --portfolio-card-padding */
+
+/* Spacing */
+/* --spacing-md, --spacing-lg, --gap-lg */
+
+/* Transitions */
+/* --transition-normal, --transition-fast */
+
+.portfolio-section {
+  background: var(--portfolio-bg);
+  padding: var(--portfolio-padding-y) var(--portfolio-padding-x);
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.portfolio-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.portfolio-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+/* === SECTION HEADER === */
+.portfolio-header {
+  text-align: center;
+  margin-bottom: var(--portfolio-header-margin);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.portfolio-title {
+  font-size: var(--portfolio-title-font-size);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+  line-height: var(--line-height-tight);
+}
+
+.portfolio-subtitle {
+  font-size: var(--portfolio-subtitle-font-size);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+}
+
+/* === PORTFOLIO GRID === */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--portfolio-grid-gap);
+  margin-top: var(--spacing-3xl);
+}
+
+/* === PORTFOLIO CARD === */
+.portfolio-card {
+  background: var(--portfolio-card-bg);
+  border-radius: var(--portfolio-card-radius);
+  padding: var(--portfolio-card-padding);
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--portfolio-card-shadow);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.portfolio-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--portfolio-card-shadow-hover);
+}
+
+/* === CARD HEADER === */
+.portfolio-card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.portfolio-icon {
+  width: var(--portfolio-icon-size);
+  height: var(--portfolio-icon-size);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform var(--transition-normal);
+}
+
+.portfolio-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.portfolio-card:hover .portfolio-icon {
+  transform: scale(1.1);
+}
+
+.portfolio-card-title {
+  font-size: var(--portfolio-card-title-font-size);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0;
+  line-height: var(--line-height-tight);
+}
+
+/* === PORTFOLIO ITEMS === */
+.portfolio-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--portfolio-item-gap);
+}
+
+.portfolio-item {
+  display: flex;
+  gap: var(--gap-sm);
+  align-items: flex-start;
+}
+
+.portfolio-item-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.portfolio-item-content {
+  flex: 1;
+}
+
+.portfolio-item-title {
+  font-size: var(--portfolio-item-title-font-size);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--spacing-xs) 0;
+  line-height: var(--line-height-tight);
+}
+
+.portfolio-item-description {
+  font-size: var(--portfolio-item-description-font-size);
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: var(--line-height-normal);
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 1024px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--gap-xl);
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-section {
+    padding: var(--portfolio-padding-y-mobile) var(--spacing-md);
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: var(--gap-lg);
+  }
+
+  .portfolio-card {
+    padding: var(--spacing-lg);
+  }
+
+  .portfolio-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .portfolio-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .portfolio-card-title {
+    font-size: var(--font-size-lg);
+  }
+
+  .portfolio-item-title {
+    font-size: var(--font-size-sm);
+  }
+
+  .portfolio-item-description {
+    font-size: var(--font-size-xs);
+  }
+}

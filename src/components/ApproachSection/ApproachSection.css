@@ -1,0 +1,194 @@
+/* ========================================
+   APPROACH SECTION STYLES
+   CSS Variables used - defined in variables.css
+   ======================================== */
+
+.approach-section {
+  background: var(--approach-bg);
+  padding: var(--approach-padding-y) var(--approach-padding-x);
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.approach-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.approach-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+/* === SECTION HEADER === */
+.approach-header {
+  text-align: center;
+  margin-bottom: var(--approach-header-margin);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.approach-title {
+  font-size: var(--approach-title-font-size);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+  line-height: var(--line-height-tight);
+}
+
+.approach-subtitle {
+  font-size: var(--approach-subtitle-font-size);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+}
+
+/* === APPROACH GRID === */
+.approach-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--approach-grid-gap);
+  margin-top: var(--spacing-3xl);
+}
+
+/* === APPROACH CARD === */
+.approach-card {
+  background: var(--approach-card-bg);
+  border-radius: var(--approach-card-radius);
+  padding: var(--approach-card-padding);
+  text-align: center;
+  transition: all var(--transition-normal);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+  box-shadow: var(--approach-card-shadow);
+  position: relative;
+}
+
+/* Arrow separator between cards */
+.approach-card:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -28px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 18l6-6-6-6'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.35;
+  z-index: 1;
+  animation: arrowPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes arrowPulse {
+  0%, 100% {
+    opacity: 0.25;
+    transform: translateY(-50%) translateX(0);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(-50%) translateX(5px);
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.approach-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--approach-card-shadow-hover);
+}
+
+/* === APPROACH ICON === */
+.approach-icon {
+  width: var(--approach-icon-size);
+  height: var(--approach-icon-size);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--spacing-lg);
+  transition: transform var(--transition-normal);
+}
+
+.approach-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.approach-card:hover .approach-icon {
+  transform: scale(1.1);
+}
+
+/* === APPROACH CONTENT === */
+.approach-card-title {
+  font-size: var(--approach-card-title-font-size);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+  line-height: var(--line-height-tight);
+}
+
+.approach-description {
+  font-size: var(--approach-description-font-size);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 1024px) {
+  .approach-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--gap-xl);
+  }
+
+  /* Hide arrows on tablet - cards are in 2x2 grid */
+  .approach-card::after {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .approach-section {
+    padding: var(--approach-padding-y-mobile) var(--spacing-md);
+  }
+
+  .approach-grid {
+    grid-template-columns: 1fr;
+    gap: var(--gap-lg);
+  }
+
+  .approach-card {
+    padding: var(--spacing-xl);
+  }
+
+  .approach-icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .approach-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .approach-card-title {
+    font-size: var(--font-size-lg);
+  }
+
+  .approach-description {
+    font-size: var(--font-size-sm);
+  }
+}

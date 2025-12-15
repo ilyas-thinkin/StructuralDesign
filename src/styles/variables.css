@@ -1,0 +1,607 @@
+/* ========================================
+   CSS VARIABLES - DESIGN TOKENS
+   Edit these values to customize the design
+   ======================================== */
+
+:root {
+  /* =======================================
+     GLOBAL DESIGN TOKENS
+     ======================================= */
+
+  /* === COLORS === */
+  /* Used in: All components */
+  --color-primary: #2563eb; /* Blue - Primary brand color */
+  --color-primary-hover: #1d4ed8; /* Darker blue for hover states */
+  --color-primary-dark: #1d4ed8; /* Dark shade for hover/active */
+  --color-accent: #ff8c42; /* Orange - Get Quote button */
+  --color-accent-hover: #ff7a29; /* Darker orange for hover */
+
+  --color-text-primary: #1a1a1a; /* Main text color */
+  --color-text-secondary: #666666; /* Secondary text color */
+  --color-text-light: #999999; /* Light text color */
+
+  --color-bg-primary: #ffffff; /* Main background */
+  --color-bg-secondary: #f0f4f8; /* Light blue background */
+  --color-bg-card: #ffffff; /* Card background */
+
+  --color-border: #e5e7eb; /* Border color */
+  --color-shadow: rgba(0, 0, 0, 0.1); /* Shadow color */
+
+  /* === TYPOGRAPHY === */
+  /* Used in: All components */
+  --font-family-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  --font-size-xs: 0.75rem; /* 12px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-base: 1rem; /* 16px */
+  --font-size-lg: 1.125rem; /* 18px */
+  --font-size-xl: 1.25rem; /* 20px */
+  --font-size-2xl: 1.5rem; /* 24px */
+  --font-size-3xl: 1.875rem; /* 30px */
+  --font-size-4xl: 2.25rem; /* 36px */
+  --font-size-5xl: 3rem; /* 48px */
+  --font-size-6xl: 3.75rem; /* 60px */
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+
+  /* === SPACING === */
+  /* Used in: All components for padding/margin */
+  --spacing-xs: 0.25rem; /* 4px */
+  --spacing-sm: 0.5rem; /* 8px */
+  --spacing-md: 1rem; /* 16px */
+  --spacing-lg: 1.5rem; /* 24px */
+  --spacing-xl: 2rem; /* 32px */
+  --spacing-2xl: 3rem; /* 48px */
+  --spacing-3xl: 4rem; /* 64px */
+  --spacing-4xl: 6rem; /* 96px */
+
+  /* === GAPS === */
+  /* Used in: Flexbox and Grid layouts */
+  --gap-xs: 0.5rem; /* 8px */
+  --gap-sm: 0.75rem; /* 12px */
+  --gap-md: 1rem; /* 16px */
+  --gap-lg: 1.5rem; /* 24px */
+  --gap-xl: 2rem; /* 32px */
+  --gap-2xl: 2.5rem; /* 40px */
+
+  /* === TRANSITIONS === */
+  /* Used in: All interactive elements */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* === BORDER RADIUS === */
+  /* Used in: Buttons, Cards, Inputs */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* === Z-INDEX === */
+  /* Used in: Layered components */
+  --z-navbar: 1000;
+  --z-dropdown: 1100;
+  --z-modal: 1200;
+
+  /* === CONTAINER === */
+  /* Used in: All sections for max-width constraint */
+  --container-max-width: 1280px;
+  --container-padding: var(--spacing-xl);
+
+  /* =======================================
+     COMPONENT: NAVBAR
+     File: src/components/Navbar/Navbar.css
+     ======================================= */
+
+  /* Navbar Container */
+  --navbar-height: 80px;
+  --navbar-padding: var(--spacing-lg);
+  --navbar-bg: #ffffff;
+  --navbar-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  /* Logo Section */
+  --logo-width: 200px;
+  --logo-font-size: var(--font-size-xl);
+  --logo-bg: #ffffff;
+  --logo-text-color: #4a4a4a;
+  --logo-icon-color: var(--color-primary);
+  --logo-icon-size: 32px;
+
+  /* Navigation Links */
+  --nav-item-font-size: var(--font-size-base);
+  --nav-item-gap: var(--gap-xl);
+
+  /* Mobile Menu */
+  --mobile-menu-width: 320px;
+  --mobile-menu-bg: #ffffff;
+  --mobile-menu-overlay-bg: rgba(0, 0, 0, 0.5);
+  --hamburger-line-height: 2px;
+  --hamburger-line-spacing: 6px;
+
+  /* =======================================
+     COMPONENT: BUTTONS
+     File: Used in Navbar.css and Hero.css
+     ======================================= */
+
+  /* Button Base Styles */
+  --button-height: 48px;
+  --button-padding-x: var(--spacing-xl);
+  --button-padding-y: var(--spacing-md);
+  --button-border-radius: 100px; /* Pill shape */
+  --button-font-size: var(--font-size-base);
+  --button-font-weight: var(--font-weight-medium);
+
+  /* Primary Button (Blue) */
+  --button-primary-bg: var(--color-primary);
+  --button-primary-text: #ffffff;
+  --button-primary-hover-bg: var(--color-primary-hover);
+
+  /* Accent Button (Orange - Get Quote) */
+  --button-accent-bg: var(--color-accent);
+  --button-accent-text: #ffffff;
+  --button-accent-hover-bg: var(--color-accent-hover);
+
+  /* =======================================
+     COMPONENT: CARDS
+     File: Used in Hero.css for floating cards
+     ======================================= */
+
+  /* Card Base Styles */
+  --card-padding: var(--spacing-lg);
+  --card-border-radius: 16px;
+  --card-bg: var(--color-bg-card);
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+  /* Small Cards (Floating Stats) */
+  --card-small-width: 200px;
+  --card-small-padding: var(--spacing-md);
+
+  /* =======================================
+     COMPONENT: HERO SECTION
+     File: src/components/Hero/Hero.css
+     ======================================= */
+
+  /* Hero Container */
+  --hero-padding-y: var(--spacing-4xl);
+  --hero-padding-x: var(--spacing-xl);
+  --hero-bg: var(--color-bg-secondary);
+
+  /* Hero Title */
+  --hero-title-font-size: var(--font-size-5xl);
+  --hero-title-line-height: var(--line-height-tight);
+  --hero-title-font-weight: var(--font-weight-bold);
+
+  /* Hero Subtitle */
+  --hero-subtitle-font-size: var(--font-size-lg);
+  --hero-subtitle-line-height: var(--line-height-relaxed);
+  --hero-subtitle-color: var(--color-text-secondary);
+
+  /* Hero Image/Illustration */
+  --hero-image-size: 400px;
+
+  /* =======================================
+     COMPONENT: SOFTWARE SECTION
+     File: src/components/SoftwareSection/SoftwareSection.css
+     ======================================= */
+
+  /* Section Container */
+  --software-bg: #ffffff;
+  --software-padding-y: var(--spacing-4xl);
+  --software-padding-x: var(--spacing-xl);
+  --software-padding-y-mobile: var(--spacing-3xl);
+
+  /* Section Header */
+  --software-header-margin: var(--spacing-3xl);
+  --software-title-font-size: var(--font-size-4xl);
+  --software-subtitle-font-size: var(--font-size-lg);
+
+  /* Software Grid */
+  --software-grid-gap: var(--gap-lg);
+  --software-card-min-width: 180px;
+
+  /* Software Card */
+  --software-card-bg: #ffffff;
+  --software-card-border: #e5e7eb;
+  --software-card-radius: var(--radius-lg);
+  --software-card-padding: var(--spacing-lg);
+  --software-card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.1);
+
+  /* Software Icon */
+  --software-icon-size: 70px;
+  --software-icon-font-size: 2rem;
+  --software-icon-bg: var(--color-bg-secondary);
+
+  /* Software Text */
+  --software-name-font-size: var(--font-size-base);
+  --software-description-font-size: var(--font-size-xs);
+
+  /* =======================================
+     COMPONENT: SERVICES SECTION
+     File: src/components/ServicesSection/ServicesSection.css
+     ======================================= */
+
+  /* Section Container */
+  --services-bg: var(--color-bg-secondary);
+  --services-padding-y: var(--spacing-4xl);
+  --services-padding-x: var(--spacing-xl);
+  --services-padding-y-mobile: var(--spacing-3xl);
+
+  /* Section Header */
+  --services-header-margin: var(--spacing-2xl);
+  --services-title-font-size: var(--font-size-4xl);
+  --services-subtitle-font-size: var(--font-size-lg);
+
+  /* Services Grid */
+  --services-grid-gap: var(--gap-lg);
+  --service-card-min-width: 280px;
+
+  /* Service Card */
+  --service-card-bg: #ffffff;
+  --service-card-border: #e5e7eb;
+  --service-card-radius: var(--radius-lg);
+  --service-card-padding: var(--spacing-lg);
+  --service-card-shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.12);
+
+  /* Service Icon */
+  --services-icon-size: 56px;
+
+  /* Service Text */
+  --service-title-font-size: var(--font-size-lg);
+  --service-description-font-size: var(--font-size-xs);
+  --service-feature-font-size: var(--font-size-xs);
+
+  /* =======================================
+     COMPONENT: PORTFOLIO SECTION
+     File: src/components/PortfolioSection/PortfolioSection.css
+     ======================================= */
+
+  /* Section Container */
+  --portfolio-bg: #ffffff;
+  --portfolio-padding-y: var(--spacing-2xl);
+  --portfolio-padding-x: var(--spacing-xl);
+  --portfolio-padding-y-mobile: var(--spacing-xl);
+
+  /* Section Header */
+  --portfolio-header-margin: var(--spacing-2xl);
+  --portfolio-title-font-size: var(--font-size-4xl);
+  --portfolio-subtitle-font-size: var(--font-size-lg);
+
+  /* Portfolio Grid */
+  --portfolio-grid-gap: var(--gap-lg);
+
+  /* Portfolio Card */
+  --portfolio-card-bg: #ffffff;
+  --portfolio-card-border: #e5e7eb;
+  --portfolio-card-radius: var(--radius-lg);
+  --portfolio-card-padding: var(--spacing-xl);
+  --portfolio-card-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --portfolio-card-shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.08);
+
+  /* Portfolio Icon */
+  --portfolio-icon-size: 56px;
+
+  /* Portfolio Card Title */
+  --portfolio-card-title-font-size: var(--font-size-xl);
+
+  /* Portfolio Items */
+  --portfolio-item-gap: var(--gap-md);
+  --portfolio-item-title-font-size: var(--font-size-sm);
+  --portfolio-item-description-font-size: var(--font-size-xs);
+
+  /* =======================================
+     COMPONENT: WHY CHOOSE SECTION
+     File: src/components/WhyChooseSection/WhyChooseSection.css
+     ======================================= */
+
+  /* Section Container */
+  --why-choose-bg: #2c5aa0;
+  --why-choose-padding-y: var(--spacing-4xl);
+  --why-choose-padding-x: var(--spacing-xl);
+  --why-choose-padding-y-mobile: var(--spacing-3xl);
+
+  /* Section Header */
+  --why-choose-header-margin: var(--spacing-3xl);
+  --why-choose-title-font-size: var(--font-size-4xl);
+  --why-choose-subtitle-font-size: var(--font-size-lg);
+  --why-choose-title-color: #ffffff;
+  --why-choose-subtitle-color: rgba(255, 255, 255, 0.9);
+
+  /* Features Grid */
+  --features-grid-gap: var(--gap-2xl);
+  --feature-icon-size: 80px;
+  --feature-title-font-size: var(--font-size-xl);
+  --feature-description-font-size: var(--font-size-sm);
+
+  /* Stats Grid */
+  --stats-grid-gap: var(--gap-xl);
+  --stat-value-font-size: var(--font-size-5xl);
+  --stat-value-color: #ff8c42;
+  --stat-label-font-size: var(--font-size-base);
+
+  /* =======================================
+     COMPONENT: ABOUT SECTION
+     File: src/components/AboutSection/AboutSection.css
+     ======================================= */
+
+  /* Section Container */
+  --about-bg: #ffffff;
+  --about-padding-y: var(--spacing-2xl);
+  --about-padding-x: var(--spacing-xl);
+  --about-padding-y-mobile: var(--spacing-xl);
+
+  /* Content Layout */
+  --about-content-gap: var(--gap-4xl);
+  --about-title-font-size: var(--font-size-4xl);
+  --about-description-font-size: var(--font-size-base);
+  --about-title-color: var(--color-text-primary);
+  --about-description-color: var(--color-text-secondary);
+
+  /* Company Info Grid */
+  --about-info-gap: var(--gap-md);
+  --about-info-bg: #f8fafc;
+  --about-info-radius: var(--radius-md);
+  --about-info-icon-size: 28px;
+  --about-info-label-font-size: var(--font-size-xs);
+  --about-info-value-font-size: var(--font-size-base);
+  --about-info-label-color: var(--color-text-secondary);
+  --about-info-value-color: var(--color-text-primary);
+
+  /* Certification Badge */
+  --about-cert-bg: #f0f9ff;
+  --about-cert-border: var(--color-primary);
+  --about-cert-radius: var(--radius-lg);
+  --about-cert-title-font-size: var(--font-size-base);
+  --about-cert-subtitle-font-size: var(--font-size-xs);
+
+  /* Image */
+  --about-image-radius: var(--radius-lg);
+  --about-image-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+  /* =======================================
+     COMPONENT: APPROACH SECTION
+     File: src/components/ApproachSection/ApproachSection.css
+     ======================================= */
+
+  /* Section Container */
+  --approach-bg: #f9fafb;
+  --approach-padding-y: var(--spacing-4xl);
+  --approach-padding-x: var(--spacing-xl);
+  --approach-padding-y-mobile: var(--spacing-3xl);
+
+  /* Section Header */
+  --approach-header-margin: var(--spacing-3xl);
+  --approach-title-font-size: var(--font-size-4xl);
+  --approach-subtitle-font-size: var(--font-size-lg);
+
+  /* Approach Grid */
+  --approach-grid-gap: var(--gap-xl);
+  --approach-card-bg: #ffffff;
+  --approach-card-radius: var(--radius-lg);
+  --approach-card-padding: var(--spacing-2xl);
+  --approach-card-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --approach-card-shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.15);
+
+  /* Approach Card Content */
+  --approach-icon-size: 80px;
+  --approach-card-title-font-size: var(--font-size-xl);
+  --approach-description-font-size: var(--font-size-sm);
+
+  /* =======================================
+     COMPONENT: PROJECT SHOWCASE SECTION
+     File: src/components/ProjectShowcase/ProjectShowcase.css
+     ======================================= */
+
+  /* Section Container */
+  --project-showcase-bg: #ffffff;
+  --project-showcase-padding-y: var(--spacing-3xl);
+  --project-showcase-padding-x: var(--spacing-xl);
+  --project-showcase-padding-y-mobile: var(--spacing-2xl);
+
+  /* Section Header */
+  --project-showcase-title-font-size: var(--font-size-4xl);
+  --project-showcase-subtitle-font-size: var(--font-size-lg);
+  --project-showcase-header-gap: var(--spacing-md);
+
+  /* Filters */
+  --project-filter-gap: var(--gap-sm);
+  --project-filter-padding-y: var(--spacing-sm);
+  --project-filter-padding-x: var(--spacing-lg);
+  --project-filter-radius: var(--radius-full);
+  --project-filter-bg: #f3f4f6;
+  --project-filter-text: #4b5563;
+  --project-filter-active-bg: var(--color-primary);
+  --project-filter-active-text: #ffffff;
+
+  /* Grid & Cards */
+  --project-grid-gap: var(--gap-lg);
+  --project-card-bg: #ffffff;
+  --project-card-radius: 16px;
+  --project-card-padding: var(--spacing-lg);
+  --project-card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --project-card-shadow-hover: 0 18px 40px rgba(0, 0, 0, 0.12);
+  --project-card-border: #e5e7eb;
+
+  /* Card Media */
+  --project-image-height: 200px;
+  --project-image-radius: 12px;
+
+  /* Badges & Meta */
+  --project-badge-font-size: var(--font-size-xs);
+  --project-badge-radius: var(--radius-full);
+  --project-year-color: var(--color-text-secondary);
+  --project-location-color: var(--color-text-secondary);
+
+  /* Typography */
+  --project-title-font-size: var(--font-size-lg);
+  --project-description-font-size: var(--font-size-sm);
+
+  /* CTAs */
+  --project-link-color: var(--color-primary);
+  --project-link-hover: var(--color-primary-hover);
+  --project-footer-button-bg: var(--color-primary);
+  --project-footer-button-bg-hover: var(--color-primary-hover);
+  --project-footer-button-text: #ffffff;
+
+  /* =======================================
+     COMPONENT: FOOTER
+     File: src/components/Footer/Footer.css
+     ======================================= */
+
+  /* Layout */
+  --footer-bg: #0f172a;
+  --footer-padding-y: var(--spacing-3xl);
+  --footer-padding-x: var(--spacing-xl);
+  --footer-grid-gap: var(--spacing-3xl);
+
+  /* Typography & Colors */
+  --footer-text-primary: #e5e7eb;
+  --footer-text-muted: #94a3b8;
+  --footer-link-color: #e5e7eb;
+  --footer-link-hover: #ffffff;
+  --footer-divider-color: rgba(255, 255, 255, 0.08);
+
+  /* Logo */
+  --footer-logo-bg: #1e3a8a;
+  --footer-logo-color: #ffffff;
+  --footer-logo-size: 44px;
+
+  /* Social */
+  --footer-social-bg: #1f2937;
+  --footer-social-hover-bg: #2563eb;
+  --footer-social-icon-color: #e5e7eb;
+  --footer-social-size: 38px;
+
+  /* Call Button (Floating) */
+  --call-button-size: 62px;
+  --call-button-offset: var(--spacing-xl);
+  --call-button-bg: #ff8c42;
+  --call-button-hover: #ff7a29;
+  --call-button-shadow: 0 14px 30px rgba(255, 140, 66, 0.35);
+  --call-icon-size: 24px;
+
+  /* =======================================
+     COMPONENT: TESTIMONIALS SECTION
+     File: src/components/TestimonialsSection/TestimonialsSection.css
+     ======================================= */
+
+  /* Section Container */
+  --testimonials-bg: #ffffff;
+  --testimonials-padding-y: var(--spacing-4xl);
+  --testimonials-padding-x: var(--spacing-xl);
+  --testimonials-padding-y-mobile: var(--spacing-3xl);
+
+  /* Section Header */
+  --testimonials-header-margin: var(--spacing-3xl);
+  --testimonials-title-font-size: var(--font-size-4xl);
+  --testimonials-subtitle-font-size: var(--font-size-lg);
+
+  /* Testimonials Grid */
+  --testimonials-grid-gap: var(--gap-xl);
+
+  /* Testimonial Card */
+  --testimonial-card-bg: #ffffff;
+  --testimonial-card-radius: var(--radius-lg);
+  --testimonial-card-padding: var(--spacing-2xl);
+  --testimonial-card-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --testimonial-card-shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.12);
+
+  /* Testimonial Text */
+  --testimonial-text-font-size: var(--font-size-base);
+}
+
+/* =======================================
+   RESPONSIVE BREAKPOINTS
+   Adjust component variables for different screen sizes
+   ======================================= */
+
+/* === TABLET (768px - 1024px) === */
+@media (max-width: 1024px) {
+  :root {
+    /* Hero Section - Tablet */
+    --hero-title-font-size: var(--font-size-4xl);
+    --hero-padding-y: var(--spacing-3xl);
+    --hero-image-size: 350px;
+  }
+}
+
+/* === MOBILE (< 768px) === */
+@media (max-width: 768px) {
+  :root {
+    /* Global - Mobile */
+    --container-padding: var(--spacing-md);
+
+    /* Navbar - Mobile */
+    --navbar-height: 70px;
+    --nav-item-gap: var(--gap-md);
+    --logo-icon-size: 24px;
+    --logo-font-size: var(--font-size-base);
+
+    /* Buttons - Mobile */
+    --button-height: 44px;
+    --button-font-size: var(--font-size-sm);
+
+    /* Hero Section - Mobile */
+    --hero-title-font-size: var(--font-size-3xl);
+    --hero-padding-y: var(--spacing-2xl);
+    --hero-image-size: 300px;
+    --hero-subtitle-font-size: var(--font-size-base);
+
+    /* Cards - Mobile */
+    --card-small-width: 160px;
+    --card-padding: var(--spacing-md);
+
+    /* Software Section - Mobile */
+    --software-title-font-size: var(--font-size-3xl);
+    --software-subtitle-font-size: var(--font-size-base);
+    --software-icon-size: 60px;
+    --software-icon-font-size: 2rem;
+
+    /* Services Section - Mobile */
+    --services-title-font-size: var(--font-size-3xl);
+    --services-subtitle-font-size: var(--font-size-base);
+
+    /* Portfolio Section - Mobile */
+    --portfolio-title-font-size: var(--font-size-3xl);
+    --portfolio-subtitle-font-size: var(--font-size-base);
+
+    /* Why Choose Section - Mobile */
+    --why-choose-title-font-size: var(--font-size-3xl);
+    --why-choose-subtitle-font-size: var(--font-size-base);
+    --stat-value-font-size: var(--font-size-4xl);
+
+    /* About Section - Mobile */
+    --about-title-font-size: var(--font-size-3xl);
+    --about-description-font-size: var(--font-size-sm);
+    --about-info-icon-size: 24px;
+
+    /* Approach Section - Mobile */
+    --approach-title-font-size: var(--font-size-3xl);
+    --approach-subtitle-font-size: var(--font-size-base);
+
+    /* Project Showcase - Mobile */
+    --project-showcase-title-font-size: var(--font-size-3xl);
+    --project-showcase-subtitle-font-size: var(--font-size-base);
+    --project-image-height: 180px;
+
+    /* Footer - Mobile */
+    --footer-padding-y: var(--spacing-2xl);
+    --footer-grid-gap: var(--gap-xl);
+    --call-button-size: 56px;
+    --call-button-offset: var(--spacing-lg);
+    --call-icon-size: 22px;
+
+    /* Testimonials Section - Mobile */
+    --testimonials-title-font-size: var(--font-size-3xl);
+    --testimonials-subtitle-font-size: var(--font-size-base);
+    --testimonial-text-font-size: var(--font-size-sm);
+  }
+}

@@ -1,0 +1,188 @@
+/* ========================================
+   SOFTWARE SECTION STYLES
+   CSS Variables used - defined in variables.css
+   ======================================== */
+
+/* Colors */
+/* --software-bg, --color-text-primary, --color-text-secondary */
+/* --software-card-bg, --software-card-border */
+
+/* Sizes */
+/* --software-padding-y, --software-padding-x */
+/* --software-icon-size, --software-card-padding */
+
+/* Spacing */
+/* --spacing-md, --spacing-lg, --gap-lg */
+
+/* Transitions */
+/* --transition-normal, --transition-fast */
+
+.software-section {
+  background: var(--software-bg);
+  padding: var(--software-padding-y) var(--software-padding-x);
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.software-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.software-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+/* === SECTION HEADER === */
+.software-header {
+  text-align: center;
+  margin-bottom: var(--software-header-margin);
+}
+
+.software-title {
+  font-size: var(--software-title-font-size);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+  line-height: var(--line-height-tight);
+}
+
+.software-subtitle {
+  font-size: var(--software-subtitle-font-size);
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: var(--line-height-relaxed);
+}
+
+/* === SOFTWARE GRID === */
+.software-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--software-grid-gap);
+  margin-top: var(--spacing-xl);
+}
+
+/* === SOFTWARE CARD === */
+.software-card {
+  background: var(--software-card-bg);
+  border: 1px solid var(--software-card-border);
+  border-radius: var(--software-card-radius);
+  padding: var(--software-card-padding);
+  text-align: center;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.software-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  transform: scaleX(0);
+  transition: transform var(--transition-normal);
+}
+
+.software-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--software-card-shadow-hover);
+  border-color: var(--color-primary);
+}
+
+.software-card:hover::before {
+  transform: scaleX(1);
+}
+
+.software-icon {
+  width: var(--software-icon-size);
+  height: var(--software-icon-size);
+  margin: 0 auto var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--software-icon-font-size);
+  background: var(--software-icon-bg);
+  border-radius: var(--radius-md);
+  transition: transform var(--transition-normal);
+  padding: var(--spacing-sm);
+}
+
+.software-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.software-card:hover .software-icon {
+  transform: scale(1.1);
+}
+
+.software-name {
+  font-size: var(--software-name-font-size);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-sm);
+  line-height: var(--line-height-tight);
+}
+
+.software-description {
+  font-size: var(--software-description-font-size);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-normal);
+  margin: 0;
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 1024px) {
+  .software-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .software-section {
+    padding: var(--software-padding-y-mobile) var(--spacing-md);
+  }
+
+  .software-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap-md);
+  }
+
+  .software-card {
+    padding: var(--spacing-md);
+  }
+
+  .software-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .software-name {
+    font-size: var(--font-size-sm);
+    margin-bottom: 4px;
+  }
+
+  .software-description {
+    font-size: var(--font-size-xs);
+  }
+}
