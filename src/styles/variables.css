@@ -117,7 +117,9 @@
 
   /* Navigation Links */
   --nav-item-font-size: var(--font-size-base);
-  --nav-item-gap: var(--gap-xl);
+  --nav-item-gap: var(--gap-lg);
+  --nav-link-active-bg: #ffffff;
+  --nav-link-active-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
 
   /* Mobile Menu */
   --mobile-menu-width: 320px;

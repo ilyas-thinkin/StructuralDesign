@@ -107,28 +107,20 @@
   text-decoration: none;
   font-size: var(--nav-item-font-size);
   font-weight: var(--font-weight-medium);
-  transition: color var(--transition-fast);
+  transition: all var(--transition-fast);
   position: relative;
+  padding: 8px 16px;
+  border-radius: 100px;
 }
 
 .nav-link:hover {
   color: var(--color-primary);
 }
 
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--color-primary);
-  transform: scaleX(0);
-  transition: transform var(--transition-fast);
-}
-
-.nav-link:hover::after {
-  transform: scaleX(1);
+.nav-link.active {
+  background: var(--nav-link-active-bg);
+  color: var(--color-primary);
+  box-shadow: var(--nav-link-active-shadow);
 }
 
 /* === ACTIONS SECTION === */
@@ -336,6 +328,11 @@
 
 .mobile-nav-link:hover {
   background: var(--color-bg-secondary);
+  color: var(--color-primary);
+}
+
+.mobile-nav-link.active {
+  background: rgba(37, 99, 235, 0.1);
   color: var(--color-primary);
 }
 

@@ -2,11 +2,15 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import QuoteModal from '../QuoteModal/QuoteModal';
 import './Navbar.css';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,6 +42,15 @@ export default function Navbar() {
     setIsMobileMenuOpen(false);
   };
 
+  const openQuoteModal = () => {
+    setIsQuoteModalOpen(true);
+    setIsMobileMenuOpen(false); // Close mobile menu if open
+  };
+
+  const closeQuoteModal = () => {
+    setIsQuoteModalOpen(false);
+  };
+
   return (
     <>
       <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>
@@ -63,27 +76,27 @@ export default function Navbar() {
           {/* Navigation Items - Center (Desktop Only) */}
           <ul className="navbar-nav">
             <li>
-              <Link href="/" className="nav-link">
+              <Link href="/" className={`nav-link ${pathname === '/' ? 'active' : ''}`}>
                 Home
               </Link>
             </li>
             <li>
-              <Link href="/services" className="nav-link">
+              <Link href="/services" className={`nav-link ${pathname === '/services' ? 'active' : ''}`}>
                 Services
               </Link>
             </li>
             <li>
-              <Link href="/about" className="nav-link">
+              <Link href="/about" className={`nav-link ${pathname === '/about' ? 'active' : ''}`}>
                 About
               </Link>
             </li>
             <li>
-              <Link href="/portfolio" className="nav-link">
+              <Link href="/portfolio" className={`nav-link ${pathname === '/portfolio' ? 'active' : ''}`}>
                 Portfolio
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="nav-link">
+              <Link href="/contact" className={`nav-link ${pathname === '/contact' ? 'active' : ''}`}>
                 Contact
               </Link>
             </li>
@@ -97,9 +110,9 @@ export default function Navbar() {
               </svg>
               <span>+971 589 575 610</span>
             </a>
-            <Link href="/quote" className="btn-get-quote">
+            <button onClick={openQuoteModal} className="btn-get-quote">
               Get Quote
-            </Link>
+            </button>
           </div>
 
           {/* Hamburger Menu Button (Mobile Only) */}
@@ -137,27 +150,27 @@ export default function Navbar() {
 
         <ul className="mobile-nav">
           <li>
-            <Link href="/" className="mobile-nav-link" onClick={closeMobileMenu}>
+            <Link href="/" className={`mobile-nav-link ${pathname === '/' ? 'active' : ''}`} onClick={closeMobileMenu}>
               Home
             </Link>
           </li>
           <li>
-            <Link href="/services" className="mobile-nav-link" onClick={closeMobileMenu}>
+            <Link href="/services" className={`mobile-nav-link ${pathname === '/services' ? 'active' : ''}`} onClick={closeMobileMenu}>
               Services
             </Link>
           </li>
           <li>
-            <Link href="/about" className="mobile-nav-link" onClick={closeMobileMenu}>
+            <Link href="/about" className={`mobile-nav-link ${pathname === '/about' ? 'active' : ''}`} onClick={closeMobileMenu}>
               About
             </Link>
           </li>
           <li>
-            <Link href="/portfolio" className="mobile-nav-link" onClick={closeMobileMenu}>
+            <Link href="/portfolio" className={`mobile-nav-link ${pathname === '/portfolio' ? 'active' : ''}`} onClick={closeMobileMenu}>
               Portfolio
             </Link>
           </li>
           <li>
-            <Link href="/contact" className="mobile-nav-link" onClick={closeMobileMenu}>
+            <Link href="/contact" className={`mobile-nav-link ${pathname === '/contact' ? 'active' : ''}`} onClick={closeMobileMenu}>
               Contact
             </Link>
           </li>
@@ -170,11 +183,14 @@ export default function Navbar() {
             </svg>
             <span>+971 589 575 610</span>
           </a>
-          <Link href="/quote" className="btn-get-quote-mobile" onClick={closeMobileMenu}>
+          <button onClick={openQuoteModal} className="btn-get-quote-mobile">
             Get Quote
-          </Link>
+          </button>
         </div>
       </div>
+
+      {/* Quote Modal */}
+      <QuoteModal isOpen={isQuoteModalOpen} onClose={closeQuoteModal} />
     </>
   );
 }
