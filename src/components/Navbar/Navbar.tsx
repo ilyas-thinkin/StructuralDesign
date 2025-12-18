@@ -81,22 +81,22 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
-              <Link href="/services" className={`nav-link ${pathname === '/services' ? 'active' : ''}`}>
+              <Link href="/services" className={`nav-link ${pathname.startsWith('/services') ? 'active' : ''}`}>
                 Services
               </Link>
             </li>
             <li>
-              <Link href="/about" className={`nav-link ${pathname === '/about' ? 'active' : ''}`}>
+              <Link href="/about" className={`nav-link ${pathname.startsWith('/about') ? 'active' : ''}`}>
                 About
               </Link>
             </li>
             <li>
-              <Link href="/portfolio" className={`nav-link ${pathname === '/portfolio' ? 'active' : ''}`}>
+              <Link href="/portfolio" className={`nav-link ${pathname.startsWith('/portfolio') ? 'active' : ''}`}>
                 Portfolio
               </Link>
             </li>
             <li>
-              <Link href="/contact" className={`nav-link ${pathname === '/contact' ? 'active' : ''}`}>
+              <Link href="/contact" className={`nav-link ${pathname.startsWith('/contact') ? 'active' : ''}`}>
                 Contact
               </Link>
             </li>
@@ -143,22 +143,22 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Link href="/services" className={`mobile-nav-link ${pathname === '/services' ? 'active' : ''}`} onClick={closeMobileMenu}>
+            <Link href="/services" className={`mobile-nav-link ${pathname.startsWith('/services') ? 'active' : ''}`} onClick={closeMobileMenu}>
               Services
             </Link>
           </li>
           <li>
-            <Link href="/about" className={`mobile-nav-link ${pathname === '/about' ? 'active' : ''}`} onClick={closeMobileMenu}>
+            <Link href="/about" className={`mobile-nav-link ${pathname.startsWith('/about') ? 'active' : ''}`} onClick={closeMobileMenu}>
               About
             </Link>
           </li>
           <li>
-            <Link href="/portfolio" className={`mobile-nav-link ${pathname === '/portfolio' ? 'active' : ''}`} onClick={closeMobileMenu}>
+            <Link href="/portfolio" className={`mobile-nav-link ${pathname.startsWith('/portfolio') ? 'active' : ''}`} onClick={closeMobileMenu}>
               Portfolio
             </Link>
           </li>
           <li>
-            <Link href="/contact" className={`mobile-nav-link ${pathname === '/contact' ? 'active' : ''}`} onClick={closeMobileMenu}>
+            <Link href="/contact" className={`mobile-nav-link ${pathname.startsWith('/contact') ? 'active' : ''}`} onClick={closeMobileMenu}>
               Contact
             </Link>
           </li>
