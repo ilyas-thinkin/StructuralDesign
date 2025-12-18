@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Structural Engineering & BIM Services',
     description:
-      'Design, analysis, drafting, BIM coordination, and construction support delivered by StructuralDesign.ae across Dubai and the UAE.',
+      'Design, analysis, drafting, BIM coordination, and construction support delivered by Structural Designs across Dubai and the UAE.',
     url: '/services',
   },
 };

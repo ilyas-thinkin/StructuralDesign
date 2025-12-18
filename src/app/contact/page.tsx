@@ -15,14 +15,14 @@ export const metadata: Metadata = {
     canonical: '/contact',
   },
   openGraph: {
-    title: 'Contact StructuralDesign.ae',
+    title: 'Contact Structural Designs',
     description:
-      'Reach the StructuralDesign.ae team for project inquiries, proposals, and technical consultations across the UAE.',
+      'Reach the Structural Designs team for project inquiries, proposals, and technical consultations across the UAE.',
     url: '/contact',
   },
   twitter: {
     card: 'summary',
-    title: 'Contact StructuralDesign.ae',
+    title: 'Contact Structural Designs',
     description:
       'Email or call our engineers for structural design, BIM, and authority approval support in Dubai and the UAE.',
   },

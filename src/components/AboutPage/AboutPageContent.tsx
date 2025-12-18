@@ -158,7 +158,7 @@ export default function AboutPageContent() {
     {
       year: '2008',
       title: 'Foundation',
-      description: 'StructuralDesign.ae was established in Dubai with a vision to provide world-class structural engineering services across the UAE.',
+      description: 'Structural Designs was established in Dubai with a vision to provide world-class structural engineering services across the UAE.',
     },
     {
       year: '2012',
@@ -202,7 +202,7 @@ export default function AboutPageContent() {
           <div className="about-hero-content">
             <h1 className="about-hero-title">Building the Future of Dubai</h1>
             <p className="about-hero-subtitle">
-              Since 2008, StructuralDesign.ae has been at the forefront of structural engineering excellence in the UAE,
+              Since 2008, Structural Designs has been at the forefront of structural engineering excellence in the UAE,
               transforming architectural visions into safe, sustainable, and stunning realities.
             </p>
             <div className="about-hero-buttons">
@@ -233,7 +233,7 @@ export default function AboutPageContent() {
             <h2 className="section-title">Our Story</h2>
             <div className="story-text">
               <p>
-                Founded in 2008 in the heart of Dubai, StructuralDesign.ae emerged from a simple yet powerful vision:
+                Founded in 2008 in the heart of Dubai, Structural Designs emerged from a simple yet powerful vision:
                 to provide unparalleled structural engineering expertise that would shape the UAE's rapidly evolving skyline.
                 What began as a small consultancy has flourished into one of the region's most trusted names in structural design.
               </p>
@@ -250,7 +250,7 @@ export default function AboutPageContent() {
                 technical prowess and unwavering dedication to quality.
               </p>
               <p>
-                At StructuralDesign.ae, we don't just design structures—we create legacies. Every calculation, every analysis,
+                At Structural Designs, we don't just design structures—we create legacies. Every calculation, every analysis,
                 and every blueprint is crafted with precision, backed by advanced technology, and guided by international standards.
                 Our ISO-certified quality management system ensures that excellence isn't an aspiration—it's our standard operating
                 procedure.
@@ -449,7 +449,7 @@ export default function AboutPageContent() {
           <div className="certification-content">
             <h2 className="section-title">Certified Excellence</h2>
             <p className="certification-text">
-              StructuralDesign.ae is proud to be ISO certified for Quality Management Systems. This certification
+              Structural Designs is proud to be ISO certified for Quality Management Systems. This certification
               demonstrates our commitment to maintaining the highest standards of quality, consistency, and customer
               satisfaction in every project we undertake.
             </p>

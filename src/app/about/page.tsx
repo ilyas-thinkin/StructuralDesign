@@ -9,9 +9,9 @@ export const metadata: Metadata = {
     canonical: '/about',
   },
   openGraph: {
-    title: 'About StructuralDesign.ae',
+    title: 'About Structural Designs',
     description:
-      "Meet StructuralDesign.ae's engineering team, serving Dubai and the wider UAE with code-compliant design, BIM coordination, and construction support since 2008.",
+      "Meet Structural Designs' engineering team, serving Dubai and the wider UAE with code-compliant design, BIM coordination, and construction support since 2008.",
     url: '/about',
   },
 };

@@ -1,8 +1,8 @@
-export const SITE_NAME = 'StructuralDesign.ae';
+export const SITE_NAME = 'Structural Designs';
 export const SITE_URL = 'https://structuraldesign.ae';
 
 export const SITE_DESCRIPTION =
-  'StructuralDesign.ae delivers structural engineering, BIM coordination, and authority-ready documentation across Dubai and the UAE. Our team specializes in STAAD.Pro, ETABS, CSI SAFE, IDEA StatiCa, and Revit to provide compliant, buildable designs.';
+  'Structural Designs delivers structural engineering, BIM coordination, and authority-ready documentation across Dubai and the UAE. Our team specializes in STAAD.Pro, ETABS, CSI SAFE, IDEA StatiCa, and Revit to provide compliant, buildable designs.';
 
 export const SITE_KEYWORDS = [
   'structural engineering Dubai',

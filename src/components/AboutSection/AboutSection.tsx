@@ -84,9 +84,9 @@ export default function AboutSection() {
         <div className="about-content">
           {/* Left Content */}
           <div className="about-text">
-            <h2 className="about-title">About StructuralDesign.ae</h2>
+            <h2 className="about-title">About Structural Designs</h2>
             <p className="about-description">
-              StructuralDesign.ae is a premier structural engineering consultancy
+              Structural Designs is a premier structural engineering consultancy
               based in Dubai, UAE. With over 15 years of industry experience, we
               specialize in providing comprehensive structural design, analysis,
               and drafting services to clients across the Middle East.

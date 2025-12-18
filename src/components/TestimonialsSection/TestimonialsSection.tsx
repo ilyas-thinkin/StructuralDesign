@@ -38,7 +38,7 @@ export default function TestimonialsSection() {
       position: 'Project Director, Emaar Properties',
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop',
       rating: 5,
-      text: '"StructuralDesign.ae delivered exceptional structural engineering services for our high-rise project. Their expertise in ETABS and attention to detail ensured successful project completion within timeline."',
+      text: '"Structural Designs delivered exceptional structural engineering services for our high-rise project. Their expertise in ETABS and attention to detail ensured successful project completion within timeline."',
     },
     {
       id: 2,

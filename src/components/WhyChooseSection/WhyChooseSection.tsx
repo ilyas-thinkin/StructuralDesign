@@ -132,7 +132,7 @@ export default function WhyChooseSection() {
       <div className="why-choose-container">
         {/* Section Header */}
         <div className="why-choose-header">
-          <h2 className="why-choose-title">Why Choose StructuralDesign.ae</h2>
+          <h2 className="why-choose-title">Why Choose Structural Designs</h2>
           <p className="why-choose-subtitle">
             Industry-leading expertise combined with cutting-edge technology for
             exceptional results

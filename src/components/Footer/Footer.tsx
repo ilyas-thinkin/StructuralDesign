@@ -72,7 +72,7 @@ export default function Footer() {
                 </svg>
               </div>
               <div className="footer-brand-meta">
-                <div className="footer-brand-name">StructuralDesign.ae</div>
+                <div className="footer-brand-name">Structural Designs</div>
                 <div className="footer-brand-tagline">Engineering Excellence</div>
               </div>
               <p className="footer-description">
@@ -124,7 +124,7 @@ export default function Footer() {
           <div className="footer-divider" aria-hidden="true"></div>
 
           <div className="footer-bottom">
-            <div className="footer-copy">© 2025 StructuralDesign.ae. All rights reserved.</div>
+            <div className="footer-copy">© 2025 Structural Designs. All rights reserved.</div>
             <div className="footer-legal">
               <Link href="/privacy" className="footer-link">
                 Privacy Policy
@@ -140,7 +140,7 @@ export default function Footer() {
         </div>
       </footer>
 
-      <a href="tel:+97152676750400" className="call-button" aria-label="Call StructuralDesign.ae">
+      <a href="tel:+97152676750400" className="call-button" aria-label="Call Structural Designs">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path
             fill="currentColor"

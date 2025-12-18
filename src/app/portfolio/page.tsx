@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Structural Engineering Portfolio',
     description:
-      'Residential, commercial, industrial, and infrastructure projects delivered by StructuralDesign.ae across the UAE.',
+      'Residential, commercial, industrial, and infrastructure projects delivered by Structural Designs across the UAE.',
     url: '/portfolio',
   },
 };

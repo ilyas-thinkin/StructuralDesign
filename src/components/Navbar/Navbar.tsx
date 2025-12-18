@@ -67,7 +67,7 @@ export default function Navbar() {
                 </svg>
               </div>
               <div className="logo-text">
-                <span className="logo-title">StructuralDesign.ae</span>
+                <span className="logo-title">Structural Designs</span>
                 <span className="logo-subtitle">Engineering Excellence</span>
               </div>
             </Link>
