@@ -57,18 +57,15 @@ export default function ServicesPage() {
     }
   }, [selectedService]);
 
-  // auto-scroll icons on desktop only; touch/mobile users prefer manual swipe
+  // auto-scroll icons - enabled on mobile only
   useEffect(() => {
     const el = iconsGridRef.current;
     if (!el || typeof window === 'undefined') return;
-    const isTouch = window.matchMedia('(pointer: coarse)').matches;
     const isNarrow = window.matchMedia('(max-width: 900px)').matches;
-    if (isTouch || isNarrow) return; // disable auto-scroll on touch/mobile to avoid unexpected jumps
+    if (!isNarrow) return; // enable auto-scroll on mobile only
     if (autoScrollPaused || selectedService) return;
 
-    const tickMs = 28;
-    el.scrollLeft = 0;
-    scrollDirRef.current = 1;
+    const tickMs = 30;
     let startDelay = true;
     const step = () => {
       if (startDelay) {
@@ -77,12 +74,9 @@ export default function ServicesPage() {
       }
       const max = el.scrollWidth - el.clientWidth;
       if (max <= 2) return;
-      if (el.scrollLeft < 1) {
-        el.scrollLeft = 0;
-        scrollDirRef.current = 1;
-      }
+
       const dir = scrollDirRef.current;
-      const next = el.scrollLeft + dir * 0.7;
+      const next = el.scrollLeft + dir * 0.5;
 
       if (next >= max) {
         el.scrollLeft = max;
