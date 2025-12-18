@@ -49,7 +49,7 @@ export default function ServicesPage() {
         if (!quickEl) return;
         const iconsEl = iconsGridRef.current;
         const targetBase = iconsEl?.getBoundingClientRect().top ?? quickEl.getBoundingClientRect().top;
-        const y = targetBase + window.pageYOffset - 50; // keep icons and quick view both visible
+        const y = targetBase + window.pageYOffset - 100; // keep icons and quick view both visible
         window.scrollTo({ top: y, behavior: 'smooth' });
       }, 100);
     }
