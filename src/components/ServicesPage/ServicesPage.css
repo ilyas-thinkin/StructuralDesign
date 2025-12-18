@@ -49,7 +49,6 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
   scroll-padding-left: 20px;
-  scroll-snap-type: x proximity;
 }
 
 .services-icons-grid::-webkit-scrollbar {
@@ -486,6 +485,17 @@
   gap: 32px;
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .service-showcase-card {
   position: relative;
   background: #ffffff;
@@ -493,8 +503,7 @@
   border-radius: 24px;
   padding: 40px 32px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  opacity: 0;
-  animation: fadeInUp 0.6s ease forwards;
+  opacity: 1;
 }
 
 .service-showcase-card:hover {

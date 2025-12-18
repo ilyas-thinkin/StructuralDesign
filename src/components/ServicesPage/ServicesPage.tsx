@@ -16,6 +16,8 @@ export default function ServicesPage() {
   const iconsGridRef = useRef<HTMLDivElement>(null);
   const [autoScrollPaused, setAutoScrollPaused] = useState(false);
   const scrollDirRef = useRef(1);
+  const isProgrammaticScrollRef = useRef(false);
+  const userInteractionTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const openQuickView = (service: Service) => {
     if (selectedService?.id === service.id) {
@@ -57,53 +59,95 @@ export default function ServicesPage() {
     }
   }, [selectedService]);
 
-  // auto-scroll icons - enabled on mobile only
+  // Pause on user touch/interaction
+  const handleUserInteractionStart = () => {
+    setAutoScrollPaused(true);
+    if (userInteractionTimeoutRef.current) {
+      clearTimeout(userInteractionTimeoutRef.current);
+    }
+  };
+
+  const handleUserInteractionEnd = () => {
+    if (userInteractionTimeoutRef.current) {
+      clearTimeout(userInteractionTimeoutRef.current);
+    }
+    // Resume auto-scroll after user stops interacting for 2 seconds
+    userInteractionTimeoutRef.current = setTimeout(() => {
+      if (!selectedService) {
+        setAutoScrollPaused(false);
+      }
+    }, 2000);
+  };
+
+  // Attach touch/mouse event listeners
+  useEffect(() => {
+    const el = iconsGridRef.current;
+    if (!el) return;
+
+    el.addEventListener('touchstart', handleUserInteractionStart, { passive: true });
+    el.addEventListener('touchend', handleUserInteractionEnd, { passive: true });
+    el.addEventListener('mousedown', handleUserInteractionStart, { passive: true });
+    el.addEventListener('mouseup', handleUserInteractionEnd, { passive: true });
+
+    return () => {
+      el.removeEventListener('touchstart', handleUserInteractionStart);
+      el.removeEventListener('touchend', handleUserInteractionEnd);
+      el.removeEventListener('mousedown', handleUserInteractionStart);
+      el.removeEventListener('mouseup', handleUserInteractionEnd);
+      if (userInteractionTimeoutRef.current) {
+        clearTimeout(userInteractionTimeoutRef.current);
+      }
+    };
+  }, [selectedService]);
+
+  // Resume auto-scroll when quick view closes
+  useEffect(() => {
+    if (!selectedService) {
+      setAutoScrollPaused(false);
+    } else {
+      setAutoScrollPaused(true); // pause when service box is opened
+    }
+  }, [selectedService]);
+
+  // Auto-scroll logic - enabled on mobile only
   useEffect(() => {
     const el = iconsGridRef.current;
     if (!el || typeof window === 'undefined') return;
+
     const isNarrow = window.matchMedia('(max-width: 900px)').matches;
     if (!isNarrow) return; // enable auto-scroll on mobile only
-    if (autoScrollPaused || selectedService) return;
 
-    const tickMs = 30;
-    let startDelay = true;
+    if (autoScrollPaused) return;
+
+    const tickMs = 20; // faster interval for smoother scroll
     const step = () => {
-      if (startDelay) {
-        startDelay = false;
-        return;
-      }
       const max = el.scrollWidth - el.clientWidth;
       if (max <= 2) return;
 
       const dir = scrollDirRef.current;
-      const next = el.scrollLeft + dir * 0.5;
+      const next = el.scrollLeft + dir * 1; // 1px per tick for smoother motion
+
+      isProgrammaticScrollRef.current = true; // flag as programmatic
 
       if (next >= max) {
         el.scrollLeft = max;
-        scrollDirRef.current = -1;
+        scrollDirRef.current = -1; // reverse direction
       } else if (next <= 0) {
         el.scrollLeft = 0;
-        scrollDirRef.current = 1;
+        scrollDirRef.current = 1; // reverse direction
       } else {
         el.scrollLeft = next;
       }
+
+      // Reset flag after a short delay
+      setTimeout(() => {
+        isProgrammaticScrollRef.current = false;
+      }, 50);
     };
 
     const intervalId = window.setInterval(step, tickMs);
     return () => window.clearInterval(intervalId);
-  }, [autoScrollPaused, selectedService]);
-
-  // resume auto scroll when quick view closes
-  useEffect(() => {
-    if (!selectedService) {
-      setAutoScrollPaused(false);
-    }
-  }, [selectedService]);
-
-  const handleIconsHoldStart = () => setAutoScrollPaused(true);
-  const handleIconsHoldEnd = () => {
-    if (!selectedService) setAutoScrollPaused(false);
-  };
+  }, [autoScrollPaused]);
 
   const getServiceIcon = (icon: string) => {
     switch (icon) {
@@ -163,11 +207,6 @@ export default function ServicesPage() {
           <div
             className="services-icons-grid"
             ref={iconsGridRef}
-            onMouseEnter={handleIconsHoldStart}
-            onMouseLeave={handleIconsHoldEnd}
-            onTouchStart={handleIconsHoldStart}
-            onTouchEnd={handleIconsHoldEnd}
-            onTouchCancel={handleIconsHoldEnd}
           >
             {servicesData.map((service) => (
               <button
