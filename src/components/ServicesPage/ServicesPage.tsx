@@ -57,10 +57,13 @@ export default function ServicesPage() {
     }
   }, [selectedService]);
 
-  // auto-scroll icons on mobile, pause on hold or when quick view is open
+  // auto-scroll icons on desktop only; touch/mobile users prefer manual swipe
   useEffect(() => {
     const el = iconsGridRef.current;
     if (!el || typeof window === 'undefined') return;
+    const isTouch = window.matchMedia('(pointer: coarse)').matches;
+    const isNarrow = window.matchMedia('(max-width: 900px)').matches;
+    if (isTouch || isNarrow) return; // disable auto-scroll on touch/mobile to avoid unexpected jumps
     if (autoScrollPaused || selectedService) return;
 
     const tickMs = 28;
