@@ -4,12 +4,14 @@ import { useState, useRef, useEffect } from 'react';
 import type { CSSProperties } from 'react';
 import Link from 'next/link';
 import { servicesData, comprehensiveServices, Service } from '@/data/servicesData';
+import QuoteModal from '../QuoteModal/QuoteModal';
 import './ServicesPage.css';
 
 type CSSVarProperties = CSSProperties & Record<`--${string}`, string>;
 
 export default function ServicesPage() {
   const [selectedService, setSelectedService] = useState<Service | null>(null);
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const quickViewRef = useRef<HTMLDivElement>(null);
   const iconsGridRef = useRef<HTMLDivElement>(null);
   const [autoScrollPaused, setAutoScrollPaused] = useState(false);
@@ -49,7 +51,7 @@ export default function ServicesPage() {
         if (!quickEl) return;
         const iconsEl = iconsGridRef.current;
         const targetBase = iconsEl?.getBoundingClientRect().top ?? quickEl.getBoundingClientRect().top;
-        const y = targetBase + window.pageYOffset - 100; // keep icons and quick view both visible
+        const y = targetBase + window.pageYOffset - 80; // keep icons and quick view both visible
         window.scrollTo({ top: y, behavior: 'smooth' });
       }, 100);
     }
@@ -59,13 +61,23 @@ export default function ServicesPage() {
   useEffect(() => {
     const el = iconsGridRef.current;
     if (!el || typeof window === 'undefined') return;
-    if (window.innerWidth > 820) return;
     if (autoScrollPaused || selectedService) return;
 
     const tickMs = 28;
+    el.scrollLeft = 0;
+    scrollDirRef.current = 1;
+    let startDelay = true;
     const step = () => {
+      if (startDelay) {
+        startDelay = false;
+        return;
+      }
       const max = el.scrollWidth - el.clientWidth;
-      if (max <= 0) return;
+      if (max <= 2) return;
+      if (el.scrollLeft < 1) {
+        el.scrollLeft = 0;
+        scrollDirRef.current = 1;
+      }
       const dir = scrollDirRef.current;
       const next = el.scrollLeft + dir * 0.7;
 
@@ -150,6 +162,7 @@ export default function ServicesPage() {
           </p>
 
           {/* Service Icons Grid */}
+          <p className="services-icons-hint">Tap or click an icon below to open its quick view</p>
           <div
             className="services-icons-grid"
             ref={iconsGridRef}
@@ -266,76 +279,79 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Services Cards Section */}
-      <section className="services-cards-section">
-        <div className="services-cards-container">
-          <div className="services-section-header">
-            <h2 className="services-section-title">What We Offer</h2>
-            <p className="services-section-subtitle">
+      {/* Services Cards Section - Redesigned */}
+      <section className="services-showcase-section">
+        <div className="services-showcase-container">
+          <div className="services-showcase-header">
+            <div className="services-showcase-badge">Our Services</div>
+            <h2 className="services-showcase-title">What We Offer</h2>
+            <p className="services-showcase-subtitle">
               Professional structural engineering services tailored to your project needs
             </p>
           </div>
 
-          <div className="services-cards-grid">
-            {servicesData.map((service) => (
-              <div
+          <div className="services-showcase-grid">
+            {servicesData.map((service, index) => (
+              <article
                 key={service.id}
-                className="service-card"
-                style={{ '--card-accent': getServiceColor(service.id) } as CSSVarProperties}
+                className="service-showcase-card"
+                style={{
+                  '--card-color': getServiceColor(service.id),
+                  animationDelay: `${index * 0.1}s`
+                } as CSSVarProperties}
               >
-                <div className="service-card-overlay"></div>
-                <div className="service-card-inner">
-                  <div className="service-card-top">
-                    <div className="service-card-icon">
-                      {getServiceIcon(service.icon)}
-                    </div>
-                    <div className="service-card-title-wrap">
-                      <p className="service-card-eyebrow">What we offer</p>
-                      <h3 className="service-card-title">{service.title}</h3>
-                    </div>
+                <div className="service-showcase-number">{String(index + 1).padStart(2, '0')}</div>
+
+                <div className="service-showcase-icon-wrapper">
+                  <div className="service-showcase-icon">
+                    {getServiceIcon(service.icon)}
                   </div>
+                </div>
 
-                  <p className="service-card-short">{service.shortDescription}</p>
-                  <p className="service-card-description">{service.cardDescription}</p>
+                <div className="service-showcase-content">
+                  <h3 className="service-showcase-card-title">{service.title}</h3>
+                  <p className="service-showcase-card-desc">{service.shortDescription}</p>
 
-                  <div className="service-card-photo">
-                    <img src={service.image} alt={service.title} loading="lazy" />
-                    <span className="service-card-photo-tag">Project highlight</span>
-                  </div>
+                  <div className="service-showcase-divider"></div>
 
-                  <ul className="service-card-features">
-                    {service.keyFeatures.slice(0, 4).map((feature, index) => (
-                      <li key={index} className="service-card-feature">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <ul className="service-showcase-features">
+                    {service.keyFeatures.slice(0, 3).map((feature, idx) => (
+                      <li key={idx} className="service-showcase-feature-item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                           <polyline points="20 6 9 17 4 12" />
                         </svg>
-                        <span>{feature}</span>
+                        {feature}
                       </li>
                     ))}
                   </ul>
 
-                  <div className="service-card-footer">
-                    <Link href={`/services/${service.slug}`} className="service-card-btn primary">
-                      View Service
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <div className="service-showcase-buttons">
+                    <Link href={`/services/${service.slug}`} className="service-showcase-btn-primary">
+                      Learn More
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <line x1="5" y1="12" x2="19" y2="12" />
                         <polyline points="12 5 19 12 12 19" />
                       </svg>
                     </Link>
-                    <Link href="/contact" className="service-card-btn ghost">
-                      Start Project
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <line x1="5" y1="12" x2="19" y2="12" />
-                        <polyline points="12 5 19 12 12 19" />
-                      </svg>
-                    </Link>
+                    <button
+                      onClick={() => setIsQuoteModalOpen(true)}
+                      className="service-showcase-btn-secondary"
+                    >
+                      Send Enquiry
+                    </button>
                   </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Quote Modal */}
+      <QuoteModal
+        isOpen={isQuoteModalOpen}
+        onClose={() => setIsQuoteModalOpen(false)}
+      />
 
       {/* Comprehensive Service Portfolio Section */}
       <section className="comprehensive-section">
