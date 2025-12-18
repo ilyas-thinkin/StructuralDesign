@@ -45,8 +45,11 @@ export default function ServicesPage() {
     if (selectedService && quickViewRef.current) {
       // Smooth scroll to the quick view card with more space
       setTimeout(() => {
-        const targetBase = iconsGridRef.current?.getBoundingClientRect().top ?? quickViewRef.current.getBoundingClientRect().top;
-        const y = targetBase + window.pageYOffset - 16; // keep icons and quick view both visible
+        const quickEl = quickViewRef.current;
+        if (!quickEl) return;
+        const iconsEl = iconsGridRef.current;
+        const targetBase = iconsEl?.getBoundingClientRect().top ?? quickEl.getBoundingClientRect().top;
+        const y = targetBase + window.pageYOffset - 50; // keep icons and quick view both visible
         window.scrollTo({ top: y, behavior: 'smooth' });
       }, 100);
     }
