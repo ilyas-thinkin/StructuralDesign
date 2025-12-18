@@ -81,7 +81,7 @@ export default function ContactPageContent() {
     const whatsappMessage = `*New Contact Request*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Phone:* ${formData.countryCode} ${formData.phone}%0A*Service:* ${formData.service}%0A*Message:* ${formData.message || 'N/A'}`;
 
     // WhatsApp number
-    const whatsappNumber = '971589575610';
+    const whatsappNumber = '97152676750400';
 
     // Open WhatsApp
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
@@ -123,8 +123,8 @@ export default function ContactPageContent() {
                 </svg>
               </div>
               <h3 className="contact-info-title">Phone</h3>
-              <a href="tel:+971589575610" className="contact-info-link">
-                +971 589 575 610
+              <a href="tel:+97152676750400" className="contact-info-link">
+                +97152 6750400
               </a>
               <p className="contact-info-text">Mon-Sat, 9:00 AM - 6:00 PM</p>
             </div>
@@ -152,7 +152,7 @@ export default function ContactPageContent() {
                 </svg>
               </div>
               <h3 className="contact-info-title">WhatsApp</h3>
-              <a href="https://wa.me/971589575610" target="_blank" rel="noopener noreferrer" className="contact-info-link">
+              <a href="https://wa.me/97152676750400" target="_blank" rel="noopener noreferrer" className="contact-info-link">
                 Chat with us
               </a>
               <p className="contact-info-text">Quick response guaranteed</p>
@@ -317,8 +317,8 @@ export default function ContactPageContent() {
                   <h3 className="address-title">Office Address</h3>
                 </div>
                 <div className="address-details">
-                  <p className="address-line">Al Balsam Building</p>
-                  <p className="address-line">Port Saeed, Deira City Center</p>
+                  <p className="address-line">Al Babtain building</p>
+                  <p className="address-line">2nd St – Port Saeed</p>
                   <p className="address-line">Dubai, UAE</p>
                 </div>
               </div>
@@ -330,11 +330,11 @@ export default function ContactPageContent() {
                   <div className="map-frame">
                     <iframe
                       className="map-iframe"
-                      src="https://maps.google.com/maps?q=Al%20Babtain%20Building%2C%20Port%20Saeed%2C%20Deira%20City%20Center%2C%20Dubai%2C%20UAE&output=embed"
+                      src="https://maps.google.com/maps?q=Al%20Babtain%20building%2C%202nd%20St%20%E2%80%93%20Port%20Saeed%2C%20Dubai%2C%20UAE&output=embed"
                       allowFullScreen
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
-                      title="Al Babtain Building - Port Saeed, Deira City Center, Dubai"
+                      title="Al Babtain building - 2nd St, Port Saeed, Dubai"
                     ></iframe>
                     <div className="map-highlight"></div>
                   </div>
