@@ -5,13 +5,13 @@ import ServiceDetailPage from '@/components/ServicesPage/ServiceDetailPage';
 import { OG_IMAGE_PATH, SITE_NAME } from '@/lib/seo';
 
 interface ServicePageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
-  const { slug } = params;
+  const { slug } = await params;
   const service = servicesData.find((s) => s.slug === slug);
 
   if (!service) {
@@ -69,8 +69,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ServicePage({ params }: ServicePageProps) {
-  const service = servicesData.find((s) => s.slug === params.slug);
+export default async function ServicePage({ params }: ServicePageProps) {
+  const { slug } = await params;
+  const service = servicesData.find((s) => s.slug === slug);
 
   if (!service) {
     notFound();
