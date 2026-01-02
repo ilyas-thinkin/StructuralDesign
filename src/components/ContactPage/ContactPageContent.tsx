@@ -126,7 +126,7 @@ export default function ContactPageContent() {
               <a href="tel:+97152676750400" className="contact-info-link">
                 +97152 6750400
               </a>
-              <p className="contact-info-text">Mon-Sat, 9:00 AM - 6:00 PM</p>
+              <p className="contact-info-text">Available for inquiries</p>
             </div>
 
             {/* Email Card */}
@@ -158,7 +158,7 @@ export default function ContactPageContent() {
               <p className="contact-info-text">Quick response guaranteed</p>
             </div>
 
-            {/* Location Card */}
+            {/* Service Areas Card */}
             <div className="contact-info-card">
               <div className="contact-icon location-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -166,9 +166,9 @@ export default function ContactPageContent() {
                   <circle cx="12" cy="10" r="3" />
                 </svg>
               </div>
-              <h3 className="contact-info-title">Location</h3>
-              <p className="contact-info-link">Dubai, UAE</p>
-              <p className="contact-info-text">Serving all Emirates</p>
+              <h3 className="contact-info-title">Service Areas</h3>
+              <p className="contact-info-link">Dubai | Abu Dhabi</p>
+              <p className="contact-info-link">Ajman | Sharjah</p>
             </div>
           </div>
 
@@ -303,9 +303,9 @@ export default function ContactPageContent() {
               </form>
             </div>
 
-            {/* Right Column: Map + Business Hours */}
+            {/* Right Column: Service Areas + Service Hours */}
             <div className="contact-sidebar">
-              {/* Address Section */}
+              {/* Service Areas Section */}
               <div className="address-section">
                 <div className="address-header">
                   <div className="address-icon">
@@ -314,47 +314,66 @@ export default function ContactPageContent() {
                       <circle cx="12" cy="10" r="3" />
                     </svg>
                   </div>
-                  <h3 className="address-title">Office Address</h3>
+                  <h3 className="address-title">Service Areas</h3>
                 </div>
                 <div className="address-details">
-                  <p className="address-line">Al Babtain building</p>
-                  <p className="address-line">2nd St – Port Saeed</p>
-                  <p className="address-line">Dubai, UAE</p>
-                </div>
-              </div>
-
-              {/* Map Section */}
-              <div className="map-section">
-                <h3 className="map-title">Find Us on Map</h3>
-                <div className="map-container">
-                  <div className="map-frame">
-                    <iframe
-                      className="map-iframe"
-                      src="https://maps.google.com/maps?q=Al%20Babtain%20building%2C%202nd%20St%20%E2%80%93%20Port%20Saeed%2C%20Dubai%2C%20UAE&output=embed"
-                      allowFullScreen
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      title="Al Babtain building - 2nd St, Port Saeed, Dubai"
-                    ></iframe>
-                    <div className="map-highlight"></div>
+                  <p style={{
+                    fontSize: '14px',
+                    lineHeight: '1.6',
+                    color: '#555',
+                    marginBottom: '20px',
+                    fontWeight: '400'
+                  }}>
+                    We serve clients across the UAE with on-site visits to your location.
+                  </p>
+                  <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: '1fr 1fr',
+                    gap: '14px',
+                    marginBottom: '8px'
+                  }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066cc" strokeWidth="2.5">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                      </svg>
+                      <span style={{ fontSize: '15px', color: '#2c3e50', fontWeight: '500' }}>Dubai</span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066cc" strokeWidth="2.5">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                      </svg>
+                      <span style={{ fontSize: '15px', color: '#2c3e50', fontWeight: '500' }}>Abu Dhabi</span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066cc" strokeWidth="2.5">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                      </svg>
+                      <span style={{ fontSize: '15px', color: '#2c3e50', fontWeight: '500' }}>Ajman</span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066cc" strokeWidth="2.5">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                      </svg>
+                      <span style={{ fontSize: '15px', color: '#2c3e50', fontWeight: '500' }}>Sharjah</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Business Hours */}
+              {/* Service Hours */}
               <div className="business-hours-section">
-                <h3 className="business-hours-title">Business Hours</h3>
+                <h3 className="business-hours-title">Service Hours</h3>
                 <div className="business-hours-list">
                   <div className="business-hours-item">
                     <span className="day">Monday - Friday</span>
                     <span className="time">9:00 AM - 6:00 PM</span>
                   </div>
                   <div className="business-hours-item">
-                    <span className="day">Saturday</span>
-                    <span className="time">10:00 AM - 4:00 PM</span>
-                  </div>
-                  <div className="business-hours-item">
-                    <span className="day">Sunday</span>
+                    <span className="day">Saturday - Sunday</span>
                     <span className="time">Closed</span>
                   </div>
                 </div>
