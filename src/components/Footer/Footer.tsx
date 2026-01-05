@@ -140,7 +140,7 @@ export default function Footer() {
         </div>
       </footer>
 
-      <a href="tel:+97152676750400" className="call-button" aria-label="Call Structural Designs">
+      <a href="tel:+971526750400" className="call-button" aria-label="Call Structural Designs">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path
             fill="currentColor"
