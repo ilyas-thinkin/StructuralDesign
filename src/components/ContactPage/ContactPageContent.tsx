@@ -81,7 +81,7 @@ export default function ContactPageContent() {
     const whatsappMessage = `*New Contact Request*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Phone:* ${formData.countryCode} ${formData.phone}%0A*Service:* ${formData.service}%0A*Message:* ${formData.message || 'N/A'}`;
 
     // WhatsApp number
-    const whatsappNumber = '97152676750400';
+    const whatsappNumber = '971526750400';
 
     // Open WhatsApp
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
@@ -123,7 +123,7 @@ export default function ContactPageContent() {
                 </svg>
               </div>
               <h3 className="contact-info-title">Phone</h3>
-              <a href="tel:+97152676750400" className="contact-info-link">
+              <a href="tel:+971526750400" className="contact-info-link">
                 +97152 6750400
               </a>
               <p className="contact-info-text">Available for inquiries</p>
@@ -139,7 +139,7 @@ export default function ContactPageContent() {
               </div>
               <h3 className="contact-info-title">Email</h3>
               <a href="mailto:info@structuraldesign.ae" className="contact-info-link">
-                info@structuraldesign.ae
+                info@structuraldesigns.ae
               </a>
               <p className="contact-info-text">We'll respond within 24 hours</p>
             </div>
@@ -152,7 +152,7 @@ export default function ContactPageContent() {
                 </svg>
               </div>
               <h3 className="contact-info-title">WhatsApp</h3>
-              <a href="https://wa.me/97152676750400" target="_blank" rel="noopener noreferrer" className="contact-info-link">
+              <a href="https://wa.me/971526750400" target="_blank" rel="noopener noreferrer" className="contact-info-link">
                 Chat with us
               </a>
               <p className="contact-info-text">Quick response guaranteed</p>
