@@ -85,7 +85,7 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
     const whatsappMessage = `*New Quote Request*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Phone:* ${formData.countryCode} ${formData.phone}%0A*Service:* ${formData.service}%0A*Message:* ${formData.message || 'N/A'}`;
 
     // WhatsApp number (replace with your actual number)
-    const whatsappNumber = '+97152676750400'; // Replace with actual number
+    const whatsappNumber = '+971526750400'; // Replace with actual number
 
     // Open WhatsApp
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
