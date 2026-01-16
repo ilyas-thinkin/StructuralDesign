@@ -138,7 +138,7 @@ export default function ContactPageContent() {
                 </svg>
               </div>
               <h3 className="contact-info-title">Email</h3>
-              <a href="mailto:info@structuraldesign.ae" className="contact-info-link">
+              <a href="mailto:info@structuraldesigns.ae" className="contact-info-link">
                 info@structuraldesigns.ae
               </a>
               <p className="contact-info-text">We'll respond within 24 hours</p>
