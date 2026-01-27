@@ -123,8 +123,8 @@ export default function ContactPageContent() {
                 </svg>
               </div>
               <h3 className="contact-info-title">Phone</h3>
-              <a href="tel:+971526750400" className="contact-info-link">
-                +97152 6750400
+              <a href="tel:+971565839496" className="contact-info-link">
+                0565 839 496
               </a>
               <p className="contact-info-text">Available for inquiries</p>
             </div>

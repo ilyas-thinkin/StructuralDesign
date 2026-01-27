@@ -106,6 +106,7 @@
   background: transparent;
   color: var(--color-text-primary);
   border: 2px solid var(--color-border);
+  cursor: pointer;
 }
 
 .btn-hero-secondary:hover {

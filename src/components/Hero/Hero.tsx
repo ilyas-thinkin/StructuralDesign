@@ -1,9 +1,13 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
+import QuoteModal from '../QuoteModal/QuoteModal';
 import './Hero.css';
 
 export default function Hero() {
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+
   return (
     <section className="hero">
       <div className="hero-container">
@@ -27,12 +31,12 @@ export default function Hero() {
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </Link>
-            <Link href="/quote" className="btn-hero-secondary">
+            <button type="button" onClick={() => setIsQuoteModalOpen(true)} className="btn-hero-secondary">
               Get Free Quote
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
               </svg>
-            </Link>
+            </button>
           </div>
         </div>
 
@@ -80,6 +84,9 @@ export default function Hero() {
       {/* Background Decorations */}
       <div className="hero-bg-decoration decoration-1"></div>
       <div className="hero-bg-decoration decoration-2"></div>
+
+      {/* Quote Modal */}
+      <QuoteModal isOpen={isQuoteModalOpen} onClose={() => setIsQuoteModalOpen(false)} />
     </section>
   );
 }
